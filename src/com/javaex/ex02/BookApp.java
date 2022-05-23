@@ -1,5 +1,7 @@
 package com.javaex.ex02;
 
+import java.util.List;
+
 public class BookApp {
 
 	public static void main(String[] args) {
@@ -14,6 +16,28 @@ public class BookApp {
 //		bookDao.bookInsert("오직두사람", "문학동네", "2017-05-04", 6);
 //		bookDao.bookInsert("26년", "재미주의", "2012-02-04", 5);
 
+		
+//		int dCount = bookDao.bookDelete(4);
+//		System.out.println("삭제건수:" + dCount );
+		
+List<BookVo> fullList = bookDao.bookSelect();
+		
+		for(int i=0; i<fullList.size(); i++) {
+			int bookId = fullList.get(i).getBookId();
+			String title = fullList.get(i).getTitle();
+			String pubs = fullList.get(i).getPubs();
+			String pubDate = fullList.get(i).getPubDate();
+			int authorId = fullList.get(i).getAuthorId();
+			String authorName = fullList.get(i).getAuthorName();
+			String authorDesc = fullList.get(i).getAuthorDesc();
+			
+			System.out.println(bookId + ", " + title + ", " + pubs + ", " + pubDate + ", " + authorId + ", " + authorName + ", " + authorDesc);
+		}
+		
 	}
-
 }
+
+		
+	
+
+
